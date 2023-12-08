@@ -5,7 +5,7 @@ module rgb_test(
     input                       start,
 
     output                      rgb_clk,
-    output                      rgb_de,
+    output reg                  rgb_de,
     output reg [23:0]           rgb_data
 );
 
@@ -13,7 +13,7 @@ module rgb_test(
 assign rgb_clk = clk;
 
 // 生成行列计数器 
-parameter  H_ACTIVE = 640;
+parameter  H_ACTIVE = 720;
 parameter  V_ACTIVE = 480;
 reg                     state = 0;
 reg [10:0]              h_cnt, v_cnt;

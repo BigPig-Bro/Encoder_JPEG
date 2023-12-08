@@ -3,6 +3,8 @@ db
 incremental_db
 output_files
 src/top.mpf
+src/top.cr.mti
 
 # 屏蔽modelsim文件夹
 src/work
+src/vsim.wlf

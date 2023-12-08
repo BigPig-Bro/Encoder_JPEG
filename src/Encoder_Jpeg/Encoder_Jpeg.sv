@@ -14,58 +14,62 @@ module Encoder_Jpeg#(
 );
 
 //////////////////// 			 RGB 转 YCBCR	            /////////////////////////////
+wire ycbcr_de;
+wire [7:0] ycbcr_y,ycbcr_cb,ycbcr_cr;
 rgb2ycbcr rgb2ycbcr_m0(
     .clk                    (rgb_clk                    ),
     .rst_n                  (rst_n                      ),
 
     .rgb_de                 (rgb_de                     ),
-    .rgb_data               (rgb_data                   ),
+    .rgb_r                  (rgb_data[23:16]            ),
+    .rgb_g                  (rgb_data[15: 8]            ),
+    .rgb_b                  (rgb_data[ 7: 0]            ),
     .ycbcr_de               (ycbcr_de                   ),
     .ycbcr_y                (ycbcr_y                    ),
     .ycbcr_cb               (ycbcr_cb                   ),
     .ycbcr_cr               (ycbcr_cr                   )
 );
 
-//////////////////// 			 乒乓RAM 行缓存(YCBCR)	      /////////////////////////////
-line_ycbcr_buffer line_ycbcr_buffer_m0(
-    .clk                    (rgb_clk                    ),
-    .rst_n                  (rst_n                      ),
+// //////////////////// 			 乒乓RAM 行缓存(YCBCR)	      /////////////////////////////
+// line_ycbcr_buffer line_ycbcr_buffer_m0(
+//     .clk                    (rgb_clk                    ),
+//     .rst_n                  (rst_n                      ),
 
-    .ycbcr_de               (ycbcr_de                   ),
-    .ycbcr_y                (ycbcr_y                    ),
-    .ycbcr_cb               (ycbcr_cb                   ),
-    .ycbcr_cr               (ycbcr_cr                   ),
+//     .ycbcr_de               (ycbcr_de                   ),
+//     .ycbcr_y                (ycbcr_y                    ),
+//     .ycbcr_cb               (ycbcr_cb                   ),
+//     .ycbcr_cr               (ycbcr_cr                   ),
 
-);
+// );
 
-//////////////////// 			8x8 DCT变换	             /////////////////////////////
-dct8x8 dct8x8_m0(
-    .clk                    (rgb_clk                    ),
-    .rst_n                  (rst_n                      ),
+// //////////////////// 			8x8 DCT变换	             /////////////////////////////
+// dct8x8 dct8x8_m0(
+//     .clk                    (rgb_clk                    ),
+//     .rst_n                  (rst_n                      ),
 
-);
+// );
 
-//////////////////// 			 量化	              /////////////////////////////
-quant quant_m0(
-    .clk                    (rgb_clk                    ),
-    .rst_n                  (rst_n                      ),
+// //////////////////// 			 量化	              /////////////////////////////
+// quant quant_m0(
+//     .clk                    (rgb_clk                    ),
+//     .rst_n                  (rst_n                      ),
 
-);
+// );
 
 
-//////////////////// 			 ZigZag	              /////////////////////////////
-scan_z scan_z_m0(
-    .clk                    (rgb_clk                    ),
-    .rst_n                  (rst_n                      ),
+// //////////////////// 			 ZigZag	              /////////////////////////////
+// scan_z scan_z_m0(
+//     .clk                    (rgb_clk                    ),
+//     .rst_n                  (rst_n                      ),
 
-);
+// );
 
-//////////////////// 			 熵编码（霍夫曼	       /////////////////////////////
-entropy_huffman entropy_huffman_m0(
-    .clk                    (rgb_clk                    ),
-    .rst_n                  (rst_n                      ),
+// //////////////////// 			 熵编码（霍夫曼	       /////////////////////////////
+// entropy_huffman entropy_huffman_m0(
+//     .clk                    (rgb_clk                    ),
+//     .rst_n                  (rst_n                      ),
 
-);
+// );
 
 
 endmodule

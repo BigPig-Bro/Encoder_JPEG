@@ -1,6 +1,6 @@
 
 module  rgb2ycbcr(
-	input                       clk,
+	input                       clk,rst_n,
 	input[7:0]                  rgb_r,
 	input[7:0]                  rgb_g,
 	input[7:0]                  rgb_b,
@@ -12,14 +12,14 @@ module  rgb2ycbcr(
 );
 
 //multiply 256
-parameter para_0183_10b = 10'd47;
-parameter para_0614_10b = 10'd157;
-parameter para_0062_10b = 10'd16;
-parameter para_0101_10b = 10'd26;
-parameter para_0338_10b = 10'd86;
-parameter para_0439_10b = 10'd112;
-parameter para_0399_10b = 10'd102;
-parameter para_0040_10b = 10'd10;
+parameter para_0257_10b = 10'd65;
+parameter para_0564_10b = 10'd144;
+parameter para_0098_10b = 10'd25; 
+parameter para_0148_10b = 10'd38; 
+parameter para_0291_10b = 10'd74; 
+parameter para_0439_10b = 10'd112; 
+parameter para_0368_10b = 10'd94; 
+parameter para_0071_10b = 10'd18; 
 parameter para_16_18b   = 18'd4096;
 parameter para_128_18b  = 18'd32768;
 
@@ -69,8 +69,8 @@ begin
 	end
 	else
 	begin
-		mult_r_for_y_18b <= rgb_r * para_0183_10b;
-		mult_r_for_cb_18b <= rgb_r * para_0101_10b;
+		mult_r_for_y_18b <= rgb_r * para_0257_10b;
+		mult_r_for_cb_18b <= rgb_r * para_0148_10b;
 		mult_r_for_cr_18b <= rgb_r * para_0439_10b;
 	end
 end
@@ -85,9 +85,9 @@ begin
 	end
 	else
 	begin
-		mult_g_for_y_18b <= rgb_g * para_0614_10b;
-		mult_g_for_cb_18b <= rgb_g * para_0338_10b;
-		mult_g_for_cr_18b <= rgb_g * para_0399_10b;
+		mult_g_for_y_18b <= rgb_g * para_0564_10b;
+		mult_g_for_cb_18b <= rgb_g * para_0291_10b;
+		mult_g_for_cr_18b <= rgb_g * para_0368_10b;
 	end
 end
 
@@ -101,9 +101,9 @@ begin
 	end
 	else
 	begin
-		mult_b_for_y_18b <= rgb_b * para_0062_10b;
+		mult_b_for_y_18b <= rgb_b * para_0098_10b;
 		mult_b_for_cb_18b <= rgb_b * para_0439_10b;
-		mult_b_for_cr_18b <= rgb_b * para_0040_10b;
+		mult_b_for_cr_18b <= rgb_b * para_0071_10b;
 	end
 end
 //LV2 pipeline : add

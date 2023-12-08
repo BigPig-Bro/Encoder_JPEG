@@ -46,7 +46,10 @@ rgb_test #(
 // wire                send_data_vaild, send_data_last;
 // wire [7:0]          send_data;
 
-Encoder_Jpeg Encoder_Jpeg_m0(
+Encoder_Jpeg #(
+    .H_ACTIVE               (H_ACTIVE                   ),
+    .V_ACTIVE               (V_ACTIVE                   )
+)Encoder_Jpeg_m0(
     .rst_n                  (rst_n                      ),
     .start                  (start                      ),
 

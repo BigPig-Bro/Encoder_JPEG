@@ -1,0 +1,7 @@
+# 屏蔽工程临时文件
+db
+incremental_db
+output_files
+
+# 屏蔽modelsim文件夹
+src/work

@@ -4,6 +4,7 @@ incremental_db
 output_files
 src/top.mpf
 src/top.cr.mti
+top.qws
 
 # 屏蔽modelsim文件夹
 src/work

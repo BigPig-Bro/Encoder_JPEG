@@ -60,18 +60,29 @@ logic 					dct_data_vaild;
 );
 
 // //////////////////// 			 量化	              /////////////////////////////
-// quant quant_m0(
-//     .clk                    (rgb_clk                    ),
-//     .rst_n                  (rst_n                      ),
+	// quant #(
+	.CBCR_Y_SEL (i 			)
+	)
+quant_m0(
+//     .i_clk                    (rgb_clk                    ),
+//     .i_rst_n                  (rst_n                      ),
+
+	.i_dct_data(),
+	.i_dct_data_vaild(),
+
+	.o_quant_data(),
+	.o_quant_data_vaild()
 
 // );
 
 
 // //////////////////// 			 ZigZag	              /////////////////////////////
-// scan_z scan_z_m0(
-//     .clk                    (rgb_clk                    ),
-//     .rst_n                  (rst_n                      ),
-
+// zigzag_scan zigzag_scan_m0(
+//     .i_clk                    (rgb_clk                    ),
+//     .i_clk                  (rst_n                      ),
+	
+	.i_quant_data(),
+	.i_quant_data_vaild()
 // );
 
 // //////////////////// 			 熵编码（霍夫曼	       /////////////////////////////

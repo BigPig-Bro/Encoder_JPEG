@@ -31,9 +31,9 @@ module quant#(
     if(!i_rst_n)begin
       o_quant_data_vaild     <= 'd0;
     end else begin
-      for(i = 0 ; i <= 63 ; 
+      for(i = 0 ; i <= 63 ; i++)
+        o_quant_data[i] <= i_dct_data[i] / TABLE_CBCR[i];
       o_quant_data_vaild   <= i_dct_data_vaild;
     end
-
   end
 endmodule

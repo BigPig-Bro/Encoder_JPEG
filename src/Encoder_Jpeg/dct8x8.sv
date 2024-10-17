@@ -11,8 +11,10 @@ module dct8x8 (
   
 /******************************     将输入0-255偏置为-128~127     **********************************/
   logic signed [63:0][7:0]       img_data_d;
+  logic img_data_vaild_r;
   integer i;
   always@(posedge i_clk)begin
+    img_data_vaild_r <= i_img_data_vaild;
     for(i=0;i<=63;i=i+1)begin
       img_data_d <= img_data - 128;
     end
@@ -20,4 +22,6 @@ module dct8x8 (
   
   /******************************     DCT     **********************************/
 
+  
+  
 endmodule
